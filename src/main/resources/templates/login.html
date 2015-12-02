@@ -9,10 +9,8 @@
   <body>
     <div class="slds">
       <!-- Header -->
-      <header class="site-masthead slds-grid slds-page-header slds-theme--inverse">
-        <div class="slds-media__body slds-p-top--x-small">
-          <h1 class="slds-text-heading--large">Salesforce SOAP API</h1>
-        </div>
+      <header class="site-masthead slds-grid slds-page-header slds-theme--inverse commonHeader">
+        <div th:include="layout :: header('Salesforce SOAP API Demo')"></div>
       </header>
       <!-- login page -->
       <div id="my-login">
@@ -39,4 +37,4 @@
       </div>
     </div>
   </body>
-</html> 
+</html>

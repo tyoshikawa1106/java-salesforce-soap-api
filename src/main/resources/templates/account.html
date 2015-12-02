@@ -12,16 +12,16 @@
       <header class="site-masthead slds-grid slds-page-header slds-theme--inverse commonHeader">
         <div th:include="layout :: header('Salesforce SOAP API Demo')"></div>
       </header>
-      <!-- Content -->
+      
       <div class="slds-grid slds-wrap">
         <!-- Navi -->
         <nav class="slds-col slds-size--2-of-12 sideMenu">
           <div th:include="layout :: sideMenu"></div>
         </nav>
-        <!-- Main -->
+        <!-- Main Section -->
         <section class="slds-col slds-size--10-of-12">
           <div class="slds-p-around--xx-large">
-            <p class="slds-text-heading--large">Hello!! <span th:text="${userInfo.userFullName}"></span>!!</p>
+            <p class="slds-text-heading--large">Hello!! <span th:text="${account.name}"></span>!!</p>
           </div>
         </section>
       </div>

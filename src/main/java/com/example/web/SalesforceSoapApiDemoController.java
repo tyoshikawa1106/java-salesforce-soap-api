@@ -1,6 +1,7 @@
 package com.example.web;
 
 import com.example.app.SalesforceApiUtil;
+import com.example.object.Account;
 import com.sforce.async.AsyncApiException;
 import com.sforce.soap.partner.PartnerConnection;
 import com.sforce.ws.ConnectionException;
@@ -43,6 +44,18 @@ public class SalesforceSoapApiDemoController {
 
         return "home";
     }
+    
+    @RequestMapping(value="/account", method=RequestMethod.GET)
+    public String showAccount(LoginUser loginUser, Model model) throws ConnectionException {
+        PartnerConnection partnerConnection = loginUser.getPartnerConnection();
+        System.out.println("UserInfo = " + partnerConnection.getUserInfo());
+        
+        Account account = new Account();
+        account.setName("Salesforce.com");
+        model.addAttribute("account", account);
+
+        return "account";
+    }
 	
 	@RequestMapping(value="/", method=RequestMethod.POST)
     public String doLogin(@Valid LoginUser loginUser, BindingResult bindingResult) throws ConnectionException, AsyncApiException {
@@ -63,13 +76,4 @@ public class SalesforceSoapApiDemoController {
         }
 		return "redirect:home";
     }
-}
-
-class UserInfo {
-	
-	public String userFullName;
-	
-	public void setUserFullName(String userFullName) {
-		this.userFullName = userFullName;
-	}
 }
