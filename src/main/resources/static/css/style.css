@@ -1,0 +1,34 @@
+.commonHeader {
+  box-shadow: 0 6px 10px rgba(0,0,0,0.4);
+  z-index: 999;
+}
+
+.partialsHeader {
+  background-color: rgb(21, 137, 238);
+  color: #FFF;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.4);
+  z-index: 997;
+}
+
+.sideMenu {
+  background-color: rgb(84, 105, 141);
+  color: #FFF;
+  min-height: 2000px;
+  min-width: 100px;
+  box-shadow: 4px 0 10px rgba(0,0,0,0.3);
+  z-index: 998;
+}
+
+.sideMenu ul li a {
+  color: #FFF;
+  text-decoration: none;
+  display:block;
+  font-weight: bold;
+}
+.sideMenu ul li a:hover {
+  color: rgb(0, 112, 210) !important;
+}
+
+table.transmissionTable {
+  background-color: rgba(0,0,255,0);
+}

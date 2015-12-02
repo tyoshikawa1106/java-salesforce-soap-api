@@ -1,16 +1,12 @@
 package com.example.web;
 
-import javax.validation.constraints.NotNull;
-import com.sforce.ws.ConnectorConfig;
+import com.sforce.soap.partner.PartnerConnection;
 
 public class LoginUser {
     
-    @NotNull
     private String userId;
-    @NotNull
     private String password;
-    private String authEndpoint;
-    private ConnectorConfig partnerConfig;
+    private PartnerConnection partnerConnection;
     
     public String getUserId() {
         return this.userId;
@@ -31,16 +27,12 @@ public class LoginUser {
     public String getAuthEndpoint() {
     	return "https://login.salesforce.com/services/Soap/u/35.0";
     }
-    
-    public void setAuthEndpoint(String authEndpoint) {
-    	this.authEndpoint = authEndpoint;
-    }
 
-    public ConnectorConfig getPartnerConfig() {
-        return this.partnerConfig;
+    public PartnerConnection getPartnerConnection() {
+        return this.partnerConnection;
     }
     
-    public void setPartnerConfig(ConnectorConfig partnerConfig) {
-        this.partnerConfig = partnerConfig;
+    public void setPartnerConnection(PartnerConnection partnerConnection) {
+        this.partnerConnection = partnerConnection;
     }
 }

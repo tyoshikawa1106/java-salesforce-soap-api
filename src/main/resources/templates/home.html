@@ -4,24 +4,30 @@
     <title>Salesforce SOAP API</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="vendor/SLDS0120/assets/styles/salesforce-lightning-design-system.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/login.css" rel="stylesheet" type="text/css" />
-    <style>
-      .padding {
-        padding: 20px;
-      }
-    </style>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div class="slds">
       <!-- Header -->
-      <header class="site-masthead slds-grid slds-page-header slds-theme--inverse">
+      <header class="site-masthead slds-grid slds-page-header slds-theme--inverse commonHeader">
         <div class="slds-media__body slds-p-top--x-small">
           <h1 class="slds-text-heading--large">Salesforce SOAP API</h1>
         </div>
       </header>
-      <!-- hello page -->
-      <div id="my-sfdc">
-        <p>Hello!!</p>
+      
+      <div class="slds-grid slds-wrap">
+        <!-- Navi -->
+        <nav class="slds-col slds-size--2-of-12 sideMenu">
+          <ul class="slds-list--vertical slds-has-dividers">
+            <li class="slds-list__item nav-list"><a href="/home">Home</a></li>
+          </ul>
+        </nav>
+        <!-- Main Section -->
+        <section class="slds-col slds-size--10-of-12">
+          <div class="slds-p-around--xx-large">
+            <p class="slds-text-heading--large">Hello!! <span th:text="${userInfo.userFullName}"></span>!!</p>
+          </div>
+        </section>
       </div>
     </div>
   </body>
