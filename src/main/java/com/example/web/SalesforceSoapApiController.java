@@ -8,10 +8,8 @@ import com.sforce.soap.partner.QueryResult;
 import com.sforce.soap.partner.sobject.SObject;
 import com.sforce.ws.ConnectionException;
 import com.sforce.ws.ConnectorConfig;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -84,7 +82,7 @@ public class SalesforceSoapApiController {
         // ユーザ情報取得
         User userInfo = new User();
         userInfo.setUserFullName(partnerConnection.getUserInfo().getUserFullName());
-        // モデルにセット
+        // モデルに追加
         model.addAttribute("userInfo", userInfo);
 
         return "home";
@@ -103,7 +101,7 @@ public class SalesforceSoapApiController {
         PartnerConnection partnerConnection = loginUser.getPartnerConnection();
         
         // 取引先取得クエリ実行
-        String soqlQuery = "SELECT Name, AccountNumber FROM Account LIMIT 200";
+        String soqlQuery = "SELECT Name, AccountNumber FROM Account ORDER BY Name ASC LIMIT 200";
         QueryResult qr = partnerConnection.query(soqlQuery);
         
         // 取引先リスト
@@ -118,8 +116,20 @@ public class SalesforceSoapApiController {
           // Process the query results
           for (int i = 0; i < records.length; i++) {
         	Account acc = new Account();
-        	acc.setName(String.valueOf(records[i].getField("Name")));
-        	acc.setAccountNumber(String.valueOf(records[i].getField("AccountNumber")));
+        	// Set Name
+        	Object accountName = records[i].getField("Name");
+        	if (accountName != null) {
+        	  acc.setName(String.valueOf(accountName));
+        	} else {
+        	  acc.setName("");
+        	}
+        	// Set AccountNumber
+        	Object accountNumber = records[i].getField("AccountNumber");
+        	if (accountNumber != null) {
+        	  acc.setAccountNumber(String.valueOf(accountNumber));
+        	} else {
+        	  acc.setAccountNumber("");
+        	}
         	// Add List
         	accounts.add(acc);
           }
@@ -129,9 +139,25 @@ public class SalesforceSoapApiController {
             qr = partnerConnection.queryMore(qr.getQueryLocator());
           }
         }
-        // モデルにセット
+        // モデルに追加
         model.addAttribute("accounts", accounts);
 
         return "account";
+    }
+    
+    /**
+	 * Logout【GET】
+	 * @param loginUser
+	 * @return
+     * @throws ConnectionException 
+	 */
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+    public String doSalesforceLogout(LoginUser loginUser, Model model) throws ConnectionException {
+		// PartnerConnection取得
+        PartnerConnection partnerConnection = loginUser.getPartnerConnection();
+        // Logout
+        partnerConnection.logout();
+
+        return "redirect:/";
     }
 }

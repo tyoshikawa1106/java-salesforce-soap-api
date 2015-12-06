@@ -6,10 +6,18 @@ public class Account {
 	public String accountNumber;
 	
 	public void setName(String name) {
-		this.name = name;
+		if (!name.isEmpty()) {
+			this.name = name;
+		} else {
+			this.name = "";
+		}
 	}
 	
 	public void setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
+		if (!accountNumber.isEmpty()) {
+			this.accountNumber = accountNumber;
+		} else {
+			this.accountNumber = "";
+		}
 	}
 }
