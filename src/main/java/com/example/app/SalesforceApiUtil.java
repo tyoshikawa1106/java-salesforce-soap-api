@@ -9,18 +9,19 @@ public class SalesforceApiUtil {
     
     /**
      * ConnectorConfigにセッション情報を保存
-     * @param userInfo ユーザ情報
+     * @param userId
+     * @param password
+     * @param authEndpoint
      * @return ConnectorConfig
      * @throws ConnectionException
      * @throws AsyncApiException
      */
     public ConnectorConfig getConnectorConfig(String userId, String password, String authEndpoint) throws ConnectionException, AsyncApiException {
-        System.out.println("-- getConnectorConfig --");
-        ConnectorConfig partnerConfig = new ConnectorConfig();
-        partnerConfig.setUsername(userId);
-        partnerConfig.setPassword(password);
-        partnerConfig.setAuthEndpoint(authEndpoint);
-        new PartnerConnection(partnerConfig);
-        return partnerConfig;
+      ConnectorConfig partnerConfig = new ConnectorConfig();
+      partnerConfig.setUsername(userId);
+      partnerConfig.setPassword(password);
+      partnerConfig.setAuthEndpoint(authEndpoint);
+      new PartnerConnection(partnerConfig);
+      return partnerConfig;
     }
 }

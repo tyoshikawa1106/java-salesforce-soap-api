@@ -4,38 +4,35 @@ import com.sforce.soap.partner.PartnerConnection;
 
 public class LoginUser {
     
-    // ユーザID
-	private String userId;
-	// パスワード
-    private String password;
-    // PartnerConnection
-    private PartnerConnection partnerConnection;
+  private String userId;
+  private String password;
+  private PartnerConnection partnerConnection;
     
     public String getUserId() {
-        return this.userId;
+      return this.userId;
     }
     
     public void setUserId(String userId) {
-        this.userId = userId;
+      this.userId = userId;
     }
     
     public String getPassword() {
-        return this.password;
+      return this.password;
     }
     
     public void setPassword(String password) {
-        this.password = password;
+      this.password = password;
     }
     
     public String getAuthEndpoint() {
-    	return "https://login.salesforce.com/services/Soap/u/35.0";
+      return "https://login.salesforce.com/services/Soap/u/35.0";
     }
 
     public PartnerConnection getPartnerConnection() {
-        return this.partnerConnection;
+      return this.partnerConnection;
     }
     
     public void setPartnerConnection(PartnerConnection partnerConnection) {
-        this.partnerConnection = partnerConnection;
+      this.partnerConnection = partnerConnection;
     }
 }

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <body>
-  	<!-- Header -->
-  	<div th:fragment="header (title)">
-	  <div class="slds-media__body slds-p-top--x-small">
-	    <h1 class="slds-text-heading--large" th:text="${title}"></h1>
-	  </div>
+    <!-- Header -->
+    <div th:fragment="header (title)">
+    <div class="slds-media__body slds-p-top--x-small">
+      <h1 class="slds-text-heading--large" th:text="${title}"></h1>
     </div>
-  	<!-- SideMenu -->
+    </div>
+    <!-- SideMenu -->
     <div th:fragment="sideMenu">
       <ul class="slds-list--vertical slds-has-dividers">
         <li class="slds-list__item nav-list"><a href="/home">Home</a></li>

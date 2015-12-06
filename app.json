@@ -1,0 +1,7 @@
+{
+  "name": "java-salesforce-soap-api",
+  "description": "Java Spring Boot × Salesforce SOAP API",
+  "repository": "https://github.com/tyoshikawa1106/java-salesforce-soap-api",
+  "logo": "http://cdn1.www.st-hatena.com/users/ty/tyoshikawa1106/profile.gif?1345997162",
+  "keywords": ["java", "spring boot", "lightning design sytem"]
+}
