@@ -20,8 +20,47 @@
         </nav>
         <!-- Main Section -->
         <section class="slds-col slds-size--10-of-12">
-          <div class="slds-p-around--xx-large">
+          <div class="slds-p-around--large partialsHeader">
+            <h1 class="slds-text-heading--medium">Account</h1>
+          </div>
+          <div class="slds-p-around--large">
             <p class="slds-text-heading--large">Hello!! <span th:text="${account.name}"></span>!!</p>
+          </div>
+          <div class="slds-scrollable--x">
+            <table class="slds-table slds-table--bordered">
+              <thead>
+                <tr class="slds-text-heading--label">
+                  <th scope="col">
+                    <span class="slds-truncate">Name</span>
+                  </th>
+                  <th scope="col">
+                    <span class="slds-truncate">Account Number</span>
+                  </th>
+                  <th class="slds-row-action" scope="col">
+                    <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small">
+                      <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                        <use xlink:href="vendor/SLDS0120/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Show More</span>
+                    </button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="account : ${accounts}" class="slds-hint-parent">
+                  <td th:text="${account.name}"></td>
+                  <td th:text="${account.accountNumber}"></td>
+                  <td class="slds-row-action">
+                    <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small">
+                      <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                        <use xlink:href="vendor/SLDS0120/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Show More</span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
       </div>
