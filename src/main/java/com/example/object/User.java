@@ -1,6 +1,6 @@
-package com.example.web;
+package com.example.object;
 
-class UserInfo {
+public class User {
 	
 	public String userFullName;
 	

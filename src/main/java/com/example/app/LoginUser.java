@@ -1,11 +1,14 @@
-package com.example.web;
+package com.example.app;
 
 import com.sforce.soap.partner.PartnerConnection;
 
 public class LoginUser {
     
-    private String userId;
+    // ユーザID
+	private String userId;
+	// パスワード
     private String password;
+    // PartnerConnection
     private PartnerConnection partnerConnection;
     
     public String getUserId() {
